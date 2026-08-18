@@ -1,0 +1,118 @@
+/* ── Custom properties ─────────────────────────── */
+:root {
+  --brand-purple:  #591e6e;
+  --brand-orange:  #ff800c;
+  --off-white:     #f9f8f3;
+  --purple-tint:   #f8f2fa;
+  --green-tint:    #f3f8f4;
+  --white:         #ffffff;
+  --dark-text:     #1a1a1a;
+  --mid-text:      #4a4a4a;
+  --light-border:  #e8e5df;
+}
+
+/* ── Base ──────────────────────────────────────── */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark-text);
+  background-color: var(--off-white);
+}
+
+/* ── Typography ────────────────────────────────── */
+h1, h2, h3 {
+  color: var(--brand-purple);
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--dark-text);
+}
+
+/* ── Colour utilities ──────────────────────────── */
+.text-purple     { color: var(--brand-purple); }
+.bg-brand-purple { background-color: var(--brand-purple); }
+.bg-off-white    { background-color: var(--off-white); }
+.bg-purple-tint  { background-color: var(--purple-tint); }
+.bg-green-tint   { background-color: var(--green-tint); }
+
+/* ── Section spacing ───────────────────────────── */
+.ns-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .ns-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ── Buttons ───────────────────────────────────── */
+.btn-cta {
+  display: inline-block;
+  background-color: var(--brand-orange);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background-color: #e57000;
+  color: #fff;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn-cta-sm {
+  padding: 0.625rem 1.375rem;
+  font-size: 0.9375rem;
+}
+
+.btn-outline-purple {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--brand-purple);
+  border: 2px solid var(--brand-purple);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-purple:hover,
+.btn-outline-purple:focus-visible {
+  background-color: var(--brand-purple);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Skip link ─────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--brand-purple);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 9999;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}

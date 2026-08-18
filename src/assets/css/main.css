@@ -1,0 +1,147 @@
+:root {
+  --body-shade: #ffffff;
+  --annette-purple: #591e6e;
+  --light-bg: #e8ebfa;
+  --lavender-mist: #f8f3fb;
+  --sage-whisper: #f3f8f5;
+  --warm-neutral: #faf8f3;
+  --white-space: #FFFFFF;
+}
+
+/* 
+.border-start-5px {
+  border-left: 5px solid var(--annette-purple); 
+  padding-left: 1rem;
+*/
+
+.bi.tick {
+  font-size: 1.8rem;
+  color: var(--annette-purple);
+  font-weight: 500;
+}
+
+.bg-lavender-mist{
+    background-color: var(--lavender-mist);
+}
+
+.bg-sage-whisper{
+  background-color: var(--sage-whisper);
+}
+
+.bg-warm-neutral{
+  background-color: #faf8f3;
+}
+
+.bg-white{
+    background-color: #FFFFFF;
+}
+
+.bg_logos{
+  background-color: #636569;
+}
+
+.purple {
+  color: var(--annette-purple);
+}
+
+/* For background color of elements */
+.bg-purple {
+  background-color: var(--annette-purple);
+}
+
+
+.pop-out-div {
+  background-color:#FFFFFF; /* White background */
+  border-radius: 15px; /* Curved corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Shadow effect */
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1); /* Smooth transition for hover effects */
+}
+
+.pop-out-div:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); /* Slightly larger shadow on hover */
+  transform: translateY(-5px); /* Lift the div slightly on hover */
+}
+
+/* Optional: Adjust padding for larger screens if needed */
+@media (min-width: 992px) { /* Applies to large devices and up */
+  .pb-custom-lg {
+    padding-bottom: 2rem !important; /* Adjust height of sections as desired, e.g., 3rem, 4rem, 5rem */
+  }
+}
+
+
+.pop-out-div-hero {
+  background-color: #FFFFFF; /* White background */
+  border-radius: 15px; /* Curved corners */
+  /* More subtle shadow effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A single, lighter shadow */
+  /* Transition for potential future hover effects, though none are defined here */
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+
+/*
+  html tags
+*/
+p {
+  font-size: 1.2rem;
+}
+
+h1.coverimg{
+  color: #FFFFFF;
+  font-size: 3.5rem;
+}
+
+h2.coverimg{
+  color: #FFFFFF;
+  font-size: 2.5rem
+}
+
+
+/* BUTTONS FE5F01 */
+.btn-cta {
+  background-color: #ff7f11; /* Primary background color */
+  color: #ffffff; /* White text */
+  font-weight: 600; /* Slightly bolder text */
+  padding: 0.5rem 1rem; /* Bootstrap's default padding */
+  border-radius: 0.375rem; /* Default Bootstrap rounded corners */
+  border: none; /* No border */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover & Focus Effect */
+.btn-cta:hover, .btn-cta:focus {
+  background-color: #ff8240; /* Lighter shade of #fe5f01 */
+  color: #ffffff; /* Ensure text stays white */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Active State */
+.btn-cta:active {
+  background-color: #e65400; /* Slightly darker shade for pressed effect */
+  box-shadow: none;
+}
+
+/* In your CSS file, e.g., image-styles.css */
+
+.image-display-wrapper {
+  /* Apply visual styles to the wrapper */
+  border-radius: 15px; /* Adjust for desired corner roundness */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust for desired shadow effect */
+  overflow: hidden; /* THIS IS CRUCIAL: It clips anything inside that goes beyond the rounded corners. */
+
+  /* Make the wrapper behave like a block element, but fit its content */
+  display: inline-block; /* Allows it to shrink-wrap content and be centered with text-align on parent */
+  vertical-align: middle; /* Helps with alignment if in a line of text */
+  /* Or use display: block; and margin: 0 auto; if you want it to take full width and center itself */
+}
+
+/* Styles for the actual image element inside the wrapper */
+.image-display-wrapper img {
+  width: 100%; /* Make the image fill the *wrapper's* width */
+  height: auto; /* Maintain the image's aspect ratio */
+  display: block; /* Prevents extra space below the image */
+  object-fit: contain; /* Keeps the entire image visible without cropping */
+  /* If you want the image to always fill the wrapper, even if it means cropping, use 'object-fit: cover;' instead. */
+}

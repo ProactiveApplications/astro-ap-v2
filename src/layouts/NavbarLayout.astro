@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/img/logo-small-2.webp';
+
+const pathname = Astro.url.pathname;
+const base = '/new-site';
+
+function isActive(href: string): boolean {
+  if (href === base || href === base + '/') {
+    return pathname === base || pathname === base + '/';
+  }
+  return pathname.startsWith(href);
+}
+---
+
+<nav class="navbar navbar-expand-lg sticky-top ns-navbar" aria-label="Main navigation">
+  <div class="container">
+
+    <a class="navbar-brand ns-brand" href="/new-site/">
+      <Image
+        src={logoImg}
+        alt="Listening to Your Voice logo"
+        width={52}
+        height={50}
+        format="webp"
+      />
+      <span class="ns-brand-name">Listening<br />to Your Voice</span>
+    </a>
+
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#nsNavMain"
+      aria-controls="nsNavMain"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nsNavMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class={`nav-link ns-nav-link${isActive('/new-site') ? ' active' : ''}`}
+            href="/new-site/"
+            aria-current={isActive('/new-site') ? 'page' : undefined}
+          >Home</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ns-nav-link${isActive('/new-site/individuals') ? ' active' : ''}`}
+            href="/new-site/individuals"
+            aria-current={isActive('/new-site/individuals') ? 'page' : undefined}
+          >Individuals</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ns-nav-link${isActive('/new-site/organisations') ? ' active' : ''}`}
+            href="/new-site/organisations"
+            aria-current={isActive('/new-site/organisations') ? 'page' : undefined}
+          >Organisations</a>
+        </li>
+        <li class="nav-item">
+          <span
+            class="nav-link ns-nav-link ns-coming-soon"
+            aria-disabled="true"
+            title="Coming soon"
+          >Blog</span>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <a
+            class="btn-cta btn-cta-sm"
+            href="https://calendly.com/annetteruthpearson/leadership-wellbeing-accelerator-consultation"
+            target="_blank"
+            rel="noopener"
+          >Book a Call</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  const navbar = document.querySelector('.ns-navbar');
+  if (navbar) {
+    const onScroll = () => {
+      navbar.classList.toggle('ns-navbar--scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
+<style>
+  .ns-navbar {
+    background-color: #fff;
+    border-bottom: 1px solid var(--light-border);
+    transition: box-shadow 0.2s ease;
+    min-height: 80px;
+  }
+
+  .ns-navbar.ns-navbar--scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+    border-bottom-color: transparent;
+  }
+
+  .ns-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .ns-brand-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-purple);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .ns-nav-link {
+    color: var(--dark-text);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.5rem 0.625rem;
+    transition: color 0.15s ease;
+    position: relative;
+  }
+
+  .ns-nav-link:hover {
+    color: var(--brand-purple);
+  }
+
+  .ns-nav-link.active {
+    color: var(--brand-purple);
+    font-weight: 600;
+  }
+
+  .ns-coming-soon {
+    color: var(--mid-text);
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 991px) {
+    .ns-navbar {
+      min-height: 64px;
+    }
+    .ns-nav-link {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--light-border);
+    }
+    .ns-nav-link:last-child {
+      border-bottom: none;
+    }
+    li:last-child {
+      margin-top: 0.75rem;
+    }
+  }
+</style>

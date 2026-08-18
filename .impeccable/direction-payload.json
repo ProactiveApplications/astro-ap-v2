@@ -1,0 +1,54 @@
+{
+  "title": "Choose the visual world — Listening to Your Voice",
+  "question": "The roll assigned Platform Speaker. Keep it, take a challenger, or re-roll.",
+  "options": [
+    {
+      "id": "platform-speaker",
+      "label": "Platform Speaker",
+      "kicker": "THE ROLL",
+      "lineage": "TEDx / education conference programme visual language",
+      "thesis": "Annette is the idea. The site presents her like a conference programme card for a headliner — authority at scale, one proposition per viewport, the visitor's next step always visible.",
+      "palette": ["#591e6e", "#1a1a1a", "#ffffff", "#ff800c", "#f9f8f3"],
+      "materials": [
+        "editorial photography at large scale",
+        "bold display grotesque, heavy weight",
+        "dark full-width credential bands",
+        "confident white space — density varies deliberately"
+      ],
+      "viewport": "Left: headline at display scale (~4rem), one supporting sentence, orange CTA. Right: Annette's portrait commanding two-thirds of the viewport height. Below the fold: full-width purple band — three credential stats in large white type. Service routing cards follow as two full-width editorial panels with high contrast.",
+      "risk": "Becomes hagiography if the headline names her rather than what the visitor gains in the first 90 days."
+    },
+    {
+      "id": "challenger-festival",
+      "label": "Layered Field",
+      "lineage": "Fly-posted festival hoarding — floating white panel over rich full-bleed art",
+      "thesis": "Full-bleed portrait as the visual ground. One white panel floats on it carrying the headline, CTA, and only the words that earn their keep. Everything else becomes atmosphere.",
+      "case": "Floating-panel-over-photography creates strong immediate impact and uses the existing portrait assets well. Loses on audience identification — the layered/anarchic energy reads as youth marketing rather than senior professional authority.",
+      "hero": "https://impeccable.style/worlds/cards/fly-posted-festival-hoarding-built-hero.webp"
+    },
+    {
+      "id": "challenger-azulejo",
+      "label": "Ruled Panels",
+      "lineage": "Azulejo station hall — grid of narrative panels, cobalt on white, seam lines running through every scene",
+      "thesis": "The coaching journey as an ordered sequence of ruled panels. Purple ruling lines replace cobalt. Each section is a framed narrative moment; the grid's seams never hide.",
+      "case": "Grid discipline and ordered narrative panels translate cleanly to a coaching programme's structured arc. Loses on audience identification — the Portugese tile hall isn't in the UK education leader's visual vocabulary; without the distinctive cobalt-on-white material, the grid becomes generic editorial.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-places-azulejo-station-hall-hero.webp"
+    },
+    {
+      "id": "challenger-iridescent",
+      "label": "Quiet Spectrum",
+      "lineage": "Iridescent cloud edge — plain white ground with a narrow spectral fringe at transitions",
+      "thesis": "White ground, thin humanist type, section transitions marked by a hairline band of prismatic tints (mint, rose, violet) rather than by background washes or ruled borders.",
+      "case": "Fuses poorly because the iridescent cloud's defining character is scientific specificity — the spectral palette becomes arbitrary pastels without the atmospheric phenomenon to justify them. Loses on product clarity."
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "The coaching welcome",
+    "thesis": "What coaching sites reliably ship — warmth, trust signal, single clear call to book.",
+    "viewport": "Off-white ground, portrait in a circle or soft-shadow card, headline in a friendly serif, testimonial, Book a Call button centre-stage.",
+    "risk": "Indistinguishable from every other wellbeing coach at the scroll distance that decides whether a visitor stays."
+  },
+  "steer": true
+}
