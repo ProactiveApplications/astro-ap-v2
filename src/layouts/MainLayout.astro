@@ -1,7 +1,7 @@
 ---
 import '../assets/css/main.css';
-import NewNavbar from './NavbarLayout.astro';
-import NewFooter from './FooterLayout.astro';
+import Navbar from './NavbarLayout.astro';
+import Footer from './FooterLayout.astro';
 
 interface Props {
   title?: string;
@@ -59,15 +59,13 @@ const pageTitle = title === 'Listening to Your Voice'
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <NewNavbar />
+  <Navbar />
 
   <main id="main-content">
     <slot />
   </main>
 
-  <NewFooter />
+  <Footer />
 
   <!-- Bootstrap JS bundle (includes Popper, needed for navbar collapse) -->
   <script

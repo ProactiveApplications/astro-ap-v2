@@ -5,7 +5,27 @@
 
 ---
 
-## 1. Color Palette & Tokens
+## 1. Color Palette, CSS Variables & Bootstrap Integration
+
+*All custom CSS must reside in `src/assets/css/main.css`. No inline `style="..."` attributes allowed.*
+
+### Global CSS Variables (`src/assets/css/main.css`)
+```css
+:root {
+  /* Brand Core */
+  --color-primary: #591e6e;        /* Authority Purple */
+  --color-cta: #ff800c;            /* Action Orange */
+  
+  /* Surfaces & Canvas */
+  --color-bg-canvas: #f9f8f3;      /* Main Warm Off-White Surface */
+  --color-bg-surface-purple: #f8f2fa; /* Level 1 Purple Tint */
+  --color-bg-surface-sage: #f3f8f4;   /* Level 1 Sage Tint */
+  
+  /* Text & Borders */
+  --color-text-main: oklch(22% 0.03 320);
+  --color-text-muted: oklch(45% 0.02 320);
+  --color-border-subtle: oklch(90% 0.01 320);
+}
 
 ### Core Brand Colors
 * **Primary Deep Brand (Authority Purple):** `#591e6e` | `oklch(31% 0.12 320)`

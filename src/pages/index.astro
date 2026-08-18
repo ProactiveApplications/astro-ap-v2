@@ -1,21 +1,16 @@
 ---
-export const prerender = true;
 import Layout from '../layouts/MainLayout.astro';
+import Hero from '../components/homepage/01_hero.astro';
+import Logos from '../components/website/logos_row.astro';
+
+export const prerender = true;
 ---
 
 <Layout
   title="Home"
   description="Leadership wellbeing coaching for ambitious women in education. The 90 Day Leadership Wellbeing Accelerator."
 >
-  <section class="ns-section bg-off-white">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h1>Home page</h1>
-          <p class="lead">Foundation in place — navbar, footer, and layout working. Home page design coming next.</p>
-          <a href="/new-site/individuals" class="btn-cta">View Individuals page</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Hero />
+  <Logos />
 </Layout>
+

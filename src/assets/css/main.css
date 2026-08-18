@@ -1,4 +1,19 @@
 :root {
+  /* Brand Core Colors */
+  --color-primary: #591e6e;                    /* Authority Purple */
+  --color-cta: #ff800c;                        /* Action Orange */
+  
+  /* Surfaces & Canvas */
+  --color-bg-canvas: #f9f8f3;                  /* Main Warm Off-White Surface */
+  --color-bg-surface-purple: #f8f2fa;          /* Level 1 Purple Tint */
+  --color-bg-surface-sage: #f3f8f4;            /* Level 1 Sage Tint */
+  
+  /* Text & Borders */
+  --color-text-main: oklch(22% 0.03 320);      /* Deep slate with purple undertone */
+  --color-text-muted: oklch(45% 0.02 320);     /* Medium slate for secondary text */
+  --color-border-subtle: oklch(90% 0.01 320);  /* Soft divider lines */
+  
+  /* Legacy variables (for backward compatibility) */
   --body-shade: #ffffff;
   --annette-purple: #591e6e;
   --light-bg: #e8ebfa;
@@ -144,4 +159,313 @@ h2.coverimg{
   display: block; /* Prevents extra space below the image */
   object-fit: contain; /* Keeps the entire image visible without cropping */
   /* If you want the image to always fill the wrapper, even if it means cropping, use 'object-fit: cover;' instead. */
+}
+
+/* ====================================================
+   HERO COMPONENT STYLES
+   Pattern 1: Asymmetric Split Hero
+   ==================================================== */
+
+.hero-section {
+  background-color: var(--color-bg-canvas);
+  padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Portrait Section */
+.hero-portrait-wrapper {
+  max-width: 450px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.075);
+  position: relative;
+}
+
+.portrait-image {
+  max-height: 500px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Frosted Glass Badge */
+.portrait-badge {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+.badge-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.badge-title {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0.25rem 0 0 0;
+  line-height: 1.4;
+}
+
+/* Hero Card */
+.ltyv-hero-card {
+  width: 75%;
+  max-width: 100%;
+  background-color: var(--color-bg-surface-purple);
+  border: 1px solid oklch(90% 0.01 320);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -15px rgba(89, 30, 110, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Stacked layout — below Bootstrap lg breakpoint */
+@media (max-width: 991.98px) {
+  .ltyv-hero-card {
+    width: 100%;
+  }
+}
+
+.hero-headline {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-authority {
+  font-size: clamp(0.95rem, 1.1vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  margin-top: 0.5rem;
+}
+
+.btn-primary-hero,
+.btn-secondary-hero {
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 250ms ease-out;
+  text-align: center;
+  border: none;
+}
+
+.btn-primary-hero {
+  background-color: var(--color-cta);
+  color: #ffffff;
+}
+
+.btn-primary-hero:hover {
+  background-color: oklch(62% 0.22 48);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(255, 128, 12, 0.3);
+}
+
+.btn-primary-hero:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-secondary-hero {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary-hero:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(89, 30, 110, 0.3);
+}
+
+.btn-secondary-hero:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Mobile — phones (< 768px) */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero-portrait-wrapper {
+    max-width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: none;
+  }
+
+  .portrait-image {
+    max-height: none;
+    height: auto;
+    object-position: center 18%;
+  }
+
+  .portrait-badge {
+    position: static;
+    margin: 0.75rem 0 0;
+  }
+
+  .badge-name {
+    font-size: 0.8rem;
+  }
+
+  .badge-title {
+    font-size: 0.7rem;
+  }
+
+  .ltyv-hero-card {
+    margin-top: 1rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .cta-buttons {
+    flex-direction: column !important;
+  }
+}
+
+/* Tablet — stacked layout, larger screen (768px–991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-portrait-wrapper {
+    max-width: 450px;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    margin: 0 auto;
+  }
+
+  .portrait-image {
+    max-height: 560px;
+    object-position: center 32%;
+  }
+}
+
+/* iPad mini portrait (768×1024) */
+@media (width: 768px) and (height: 1024px) {
+  .hero-portrait-wrapper {
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+  }
+
+  .portrait-image {
+    max-height: 520px;
+    object-position: center 28%;
+  }
+}
+
+/* iPad Air variants */
+@media (width: 820px) and (height: 1180px),
+       (width: 834px) and (height: 1194px),
+       (width: 810px) and (height: 1080px) {
+  .portrait-image {
+    max-height: 580px;
+    object-position: center 38%;
+  }
+}
+
+/* iPad Pro / Air at lg breakpoint — card fills column width */
+@media (min-width: 992px) and (max-width: 1180px) {
+  .ltyv-hero-card {
+    width: 100%;
+  }
+}
+
+/* ====================================================
+   LOGOS ROW
+   ==================================================== */
+
+.ltyv-logos-section {
+  background-color: #ffffff;
+  padding: 3rem 0 5rem;
+}
+
+.ltyv-logos-section img {
+  height: 188px;
+  width: auto;
+  display: block;
+}
+
+/* ====================================================
+   FOOTER
+   ==================================================== */
+
+footer {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.ns-footer-heading {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.ns-footer-tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.ns-footer-address {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-style: normal;
+}
+
+.ns-footer-disabled {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: inherit;
+}
+
+.ns-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ns-footer-bottom a {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ns-footer-bottom a:hover {
+  color: rgba(255, 255, 255, 0.85);
 }

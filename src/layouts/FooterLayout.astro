@@ -1,25 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-import logoImg from '../assets/img/logo-small-2.webp';
-
 const year = new Date().getFullYear();
 ---
 
-<footer class="ns-footer">
+<footer>
   <div class="container">
 
     <div class="row g-5 py-5">
 
-      <!-- Col 1: Logo + tagline -->
+      <!-- Col 1: Tagline -->
       <div class="col-lg-3 col-md-6">
-        <Image
-          src={logoImg}
-          alt="Listening to Your Voice"
-          width={160}
-          height={60}
-          format="webp"
-          class="ns-footer-logo mb-3"
-        />
         <p class="ns-footer-tagline">
           Leadership wellbeing coaching for ambitious women in education.
         </p>
@@ -90,65 +79,3 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 
-<style>
-  .ns-footer {
-    background-color: var(--brand-purple);
-    color: #fff;
-  }
-
-  .ns-footer-logo {
-    opacity: 0.9;
-    filter: brightness(0) invert(1);
-  }
-
-  .ns-footer a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.15s ease;
-  }
-
-  .ns-footer a:hover {
-    color: #fff;
-  }
-
-  .ns-footer-heading {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 1rem;
-  }
-
-  .ns-footer-tagline {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  .ns-footer-address {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.875rem;
-    line-height: 1.7;
-    font-style: normal;
-  }
-
-  .ns-footer-disabled {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: inherit;
-  }
-
-  .ns-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.45);
-  }
-
-  .ns-footer-bottom a {
-    color: rgba(255, 255, 255, 0.55);
-  }
-
-  .ns-footer-bottom a:hover {
-    color: rgba(255, 255, 255, 0.85);
-  }
-</style>

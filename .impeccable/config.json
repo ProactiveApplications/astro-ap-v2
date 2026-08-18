@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/main.css"
+        ],
+        "createdAt": "2026-08-18T14:55:31.673Z",
+        "reason": "commented-out dead code inside a block comment, never applied"
+      }
+    ]
+  }
+}

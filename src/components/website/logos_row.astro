@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import logoImg from '../../assets/img/logo-small.jpg';
+import awardImg from '../../assets/img/annette-pearson-award-win.webp';
+---
+<section class="ltyv-logos-section">
+  <div class="container">
+    <div class="row align-items-center justify-content-center gx-4">
+
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+        <Image
+          src={logoImg}
+          alt="education leaders"
+          width={122}
+          height={188}
+          format="webp"
+        />
+      </div>
+
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+        <Image
+          src={awardImg}
+          alt="Annette Pearson 2025 best Wellbeing in the workplace strategy SME"
+          width={335}
+          height={188}
+          format="webp"
+        />
+      </div>
+
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+        <Image
+          src={logoImg}
+          alt="education leaders"
+          width={122}
+          height={188}
+          format="webp"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
