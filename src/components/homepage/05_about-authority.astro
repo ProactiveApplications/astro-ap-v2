@@ -1,0 +1,1109 @@
+---
+import annetteAboutCutout from '../../assets/img/annette-about-cutout.webp';
+
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  imageSrc = annetteAboutCutout.src,
+  imageAlt = 'Annette Pearson',
+} = Astro.props;
+
+const credentials = [
+  {
+    label: 'Experience',
+    title: '35+ years of leadership experience',
+    body: 'More than three decades of education leadership, bringing first-hand insight into the pressure, responsibility and complexity of leading people.',
+  },
+  {
+    label: 'Training',
+    title: 'Trained mediator & counsellor',
+    body: 'Professional training that supports thoughtful conversations, clearer communication and meaningful change with individuals and teams.',
+  },
+  {
+    label: 'Recognition',
+    title: 'Award-winning, published and evidence-led',
+    body: 'Great British Workplace Wellbeing Award 2025, published author and creator of an established body of work around leadership and wellbeing.',
+  },
+];
+
+const individualPoints = [
+  'Space to reflect clearly and honestly',
+  'Support with boundaries, confidence and communication',
+  'A sustainable way to lead without losing yourself',
+];
+
+const organisationPoints = [
+  'Leadership wellbeing and sustainable performance',
+  'Communication, psychological safety and mediation',
+  'Healthier cultures that support people and outcomes',
+];
+
+const proof = [
+  { value: '35+', text: 'years in education leadership', icon: 'years' },
+  { value: '2025', text: 'Great British Workplace Wellbeing Award', icon: 'award' },
+  { value: '1:1 + teams', text: 'Experience supporting leaders and organisations', icon: 'people' },
+];
+---
+
+<section class="about-authority" aria-labelledby="about-annette-heading">
+  <div
+    class="about-authority__wash about-authority__wash--purple"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="about-authority__wash about-authority__wash--sage"
+    aria-hidden="true"
+  ></div>
+
+  <div class="about-authority__inner">
+
+    <div class="about-authority__hero">
+
+      <div class="about-authority__portrait">
+        <div class="portrait-halo"></div>
+
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <div class="about-authority__intro">
+        <p class="eyebrow">About Annette</p>
+
+        <h2 id="about-annette-heading">
+          Experience you can trust.
+          <span>
+          Work that makes a
+          <em>difference.</em>
+          </span>
+          </h2>
+
+      </div>
+
+      <div class="about-authority__credentials">
+        {credentials.map((item) => (
+          <article class="credential">
+            <span class="credential__dot" aria-hidden="true"></span>
+
+            <p class="credential__label">{item.label}</p>
+
+            <h3>{item.title}</h3>
+
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="about-authority__quotes">
+        <figure class="pull-quote">
+          <span class="pull-quote__mark" aria-hidden="true">“</span>
+
+          <blockquote>
+            You leave the space changed — more grounded, more self-aware.
+          </blockquote>
+
+          <figcaption>Kemi</figcaption>
+        </figure>
+
+        <figure class="pull-quote">
+          <span class="pull-quote__mark" aria-hidden="true">“</span>
+
+          <blockquote>
+            Annette has the ability to remain centred and thoughtful,
+            even in high-pressure situations.
+          </blockquote>
+
+          <figcaption>
+            Gurinder S Sanhotra, Assistant Principal
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+
+    <div class="foundation">
+
+      <div class="foundation__heading">
+        <div>
+          <p class="eyebrow">The foundation</p>
+
+          <h2>
+            A foundation built on experience, training and lived insight.
+          </h2>
+        </div>
+
+        <p>
+          Her authority is not built on theory alone. It comes from years of
+          leadership, professional training and practical work with people
+          navigating real pressure and change.
+        </p>
+      </div>
+
+      <div class="foundation__audiences">
+
+        <article class="audience-block">
+          <span class="audience-block__dot" aria-hidden="true"></span>
+
+          <p class="audience-block__label">
+            For individual leaders
+          </p>
+
+          <h3>
+            Clarity, confidence and grounded leadership.
+          </h3>
+
+          <p>
+            One-to-one work gives leaders room to think clearly,
+            understand what needs to change and move forward with confidence.
+          </p>
+
+          <ul>
+            {individualPoints.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+
+          <a
+            href="/individuals/"
+            class="path-button path-button--primary"
+          >
+            For Individuals
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="audience-block">
+          <span class="audience-block__dot" aria-hidden="true"></span>
+
+          <p class="audience-block__label">
+            For teams & organisations
+          </p>
+
+          <h3>
+            Healthier cultures. Stronger outcomes.
+          </h3>
+
+          <p>
+            Annette also works at team and organisational level,
+            helping create the conditions in which people can perform
+            without wellbeing becoming collateral damage.
+          </p>
+
+          <ul>
+            {organisationPoints.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+
+          <a
+            href="/organisations/"
+            class="path-button path-button--secondary"
+          >
+            For Organisations
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+
+      <div
+        class="proof-strip"
+        aria-label="Annette Pearson credentials and proof"
+      >
+        <p class="proof-strip__heading">
+          Rooted in trust. Recognised for impact.
+        </p>
+
+        <div class="proof-strip__items">
+          {proof.map((item) => (
+            <div class="proof-item">
+
+              <div
+                class={`proof-item__icon proof-item__icon--${item.icon}`}
+                aria-hidden="true"
+              >
+                {item.icon === 'award'
+                  ? '♜'
+                  : item.icon === 'people'
+                    ? '◇'
+                    : '35+'}
+              </div>
+
+              <div>
+                <strong>{item.value}</strong>
+                <span>{item.text}</span>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about-authority {
+    --purple: var(--color-primary, #591e6e);
+    --orange: var(--color-cta, #ff800c);
+    --canvas: var(--color-bg-canvas, #f9f8f3);
+    --purple-tint: var(--color-bg-surface-purple, #f8f2fa);
+    --sage-tint: var(--color-bg-surface-sage, #f3f8f4);
+    --ink: #262129;
+    --muted: #615a63;
+
+    position: relative;
+    overflow: clip;
+    background: var(--canvas);
+    color: var(--ink);
+    isolation: isolate;
+  }
+
+  .about-authority__inner {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  /* Decorative background washes */
+
+  .about-authority__wash {
+    position: absolute;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(14px);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .about-authority__wash--purple {
+    width: 34rem;
+    height: 28rem;
+    top: -10rem;
+    left: -12rem;
+
+    background:
+      radial-gradient(
+        circle at 60% 55%,
+        rgba(89, 30, 110, 0.12),
+        rgba(248, 242, 250, 0.72) 48%,
+        transparent 72%
+      );
+  }
+
+  .about-authority__wash--sage {
+    width: 38rem;
+    height: 30rem;
+    right: -15rem;
+    bottom: 10rem;
+
+    background:
+      radial-gradient(
+        circle at 40% 45%,
+        rgba(104, 145, 112, 0.13),
+        rgba(243, 248, 244, 0.76) 45%,
+        transparent 72%
+      );
+  }
+
+  /* Shared typography */
+
+  .eyebrow,
+  .credential__label,
+  .audience-block__label,
+  .proof-strip__heading {
+    margin: 0 0 1rem;
+
+    color: var(--purple);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: '';
+
+    display: inline-block;
+
+    width: 3px;
+    height: 1.15em;
+    margin-right: 0.8rem;
+
+    background: var(--orange);
+
+    vertical-align: -0.12em;
+  }
+
+  .about-authority h2,
+  .credential h3,
+  .audience-block h3,
+  .pull-quote blockquote {
+    color: var(--purple);
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+  }
+
+  /* Hero / authority section */
+
+  .about-authority__hero {
+    display: grid;
+
+    grid-template-columns:
+      minmax(320px, 0.88fr)
+      minmax(0, 1.12fr);
+
+    grid-template-areas:
+      'portrait intro'
+      'credentials credentials'
+      'quotes quotes';
+
+    gap:
+      clamp(2rem, 4vw, 4rem)
+      clamp(2.5rem, 5vw, 5.5rem);
+
+    align-items: start;
+
+    padding:
+      clamp(4rem, 7vw, 7rem)
+      0
+      clamp(4rem, 7vw, 6rem);
+  }
+
+  /* Portrait */
+
+  .about-authority__portrait {
+    grid-area: portrait;
+
+    position: relative;
+
+    min-height: 640px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .portrait-halo {
+    position: absolute;
+    inset: 1rem 1rem 5.5rem;
+
+    border-radius: 48% 52% 46% 54%;
+
+    background:
+      radial-gradient(
+        circle at 45% 38%,
+        rgba(89, 30, 110, 0.11),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 65% 60%,
+        rgba(255, 128, 12, 0.05),
+        transparent 46%
+      ),
+      var(--purple-tint);
+
+    transform: rotate(-3deg);
+    filter: blur(1px);
+  }
+
+  .about-authority__portrait img {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 480px);
+    max-height: 620px;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    /*
+      Flip Annette horizontally so she faces into
+      the page rather than towards the viewport edge.
+    */
+    transform: scaleX(-1);
+
+    filter:
+      drop-shadow(
+        0 24px 32px rgba(65, 36, 63, 0.08)
+      );
+  }
+
+  /* Main introduction */
+
+  .about-authority__intro {
+    grid-area: intro;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-authority__intro h2 {
+    margin: 0;
+
+    max-width: 11ch;
+
+    font-size: clamp(3rem, 4.3vw, 4.8rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .about-authority__intro h2 span {
+    display: block;
+    margin-top: 0.12em;
+  }
+.about-authority__intro h2 em {
+  position: relative;
+  display: inline-block;
+
+  font-style: normal;
+}
+
+.about-authority__intro h2 em::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.16em;
+
+  height: 3px;
+
+  background: var(--orange);
+  border-radius: 999px;
+}
+
+  /* Credentials */
+
+  .about-authority__credentials {
+    grid-area: credentials;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: clamp(2.5rem, 5vw, 5rem);
+
+    width: 100%;
+    max-width: none;
+
+    margin-top: 1rem;
+  }
+
+  .credential {
+    position: relative;
+
+    padding-left: 1.4rem;
+  }
+
+  .credential::before {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+      linear-gradient(
+        var(--orange),
+        rgba(255, 128, 12, 0.16)
+      );
+  }
+
+  .credential__dot,
+  .audience-block__dot {
+    position: absolute;
+
+    left: -4px;
+    top: 0.1rem;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+
+    box-shadow:
+      0 0 0 4px var(--canvas);
+  }
+
+  .credential__label {
+    margin-bottom: 0.55rem;
+
+    font-size: 0.68rem;
+  }
+
+  .credential h3 {
+    margin: 0 0 0.8rem;
+
+    font-size:
+      clamp(1.45rem, 1.75vw, 1.9rem);
+
+    line-height: 1.08;
+  }
+
+  .credential > p:last-child {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.95rem;
+    line-height: 1.68;
+  }
+
+  /* Testimonials */
+
+  .about-authority__quotes {
+    grid-area: quotes;
+
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      clamp(1.5rem, 4vw, 3rem);
+
+    margin-top: 0.5rem;
+  }
+
+  .pull-quote {
+    position: relative;
+
+    margin: 0;
+    padding-left: 2rem;
+
+    border-left:
+      1px solid var(--orange);
+  }
+
+  .pull-quote__mark {
+    position: absolute;
+
+    top: -1.55rem;
+    left: 0.7rem;
+
+    color: var(--orange);
+
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  .pull-quote blockquote {
+    margin: 0;
+
+    font-size: 1.28rem;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .pull-quote figcaption {
+    margin-top: 0.85rem;
+
+    color: var(--purple);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  /* Foundation */
+
+  .foundation {
+    position: relative;
+
+    margin-inline:
+      calc(50% - 50vw);
+
+    padding:
+      clamp(4rem, 7vw, 6rem)
+      max(
+        1.25rem,
+        calc((100vw - 1180px) / 2)
+      );
+
+    background:
+      radial-gradient(
+        circle at 4% 40%,
+        rgba(89, 30, 110, 0.055),
+        transparent 24%
+      ),
+      radial-gradient(
+        circle at 94% 82%,
+        rgba(104, 145, 112, 0.08),
+        transparent 28%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(243, 248, 244, 0.6),
+        rgba(249, 248, 243, 0.94)
+      );
+
+    border-top:
+      1px solid rgba(89, 30, 110, 0.09);
+  }
+
+  .foundation__heading {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      clamp(2.5rem, 6vw, 6rem);
+
+    align-items: end;
+
+    margin-bottom:
+      clamp(3rem, 6vw, 5rem);
+  }
+
+  .foundation__heading h2 {
+    margin: 0;
+
+    max-width: 11ch;
+
+    font-size:
+      clamp(2.7rem, 4.5vw, 5rem);
+
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .foundation__heading > p:last-child {
+    margin: 0 0 0.35rem;
+
+    max-width: 50ch;
+
+    color: var(--muted);
+
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+
+  /* Audience paths */
+
+  .foundation__audiences {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .audience-block {
+  position: relative;
+  max-width: 520px;
+  padding-left: 2rem;
+
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+  .audience-block::before {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+      linear-gradient(
+        var(--orange),
+        rgba(255, 128, 12, 0.1)
+      );
+  }
+
+  .audience-block h3 {
+    margin: 0 0 1rem;
+
+    max-width: 14ch;
+
+    font-size:
+      clamp(1.9rem, 2.6vw, 3rem);
+
+    line-height: 1.05;
+  }
+
+  .audience-block > p:not(.audience-block__label) {
+    margin: 0;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+  }
+
+.audience-block ul {
+  list-style: none;
+  margin: 1.35rem 0 0;
+  padding: 0;
+
+  color: var(--muted);
+}
+.audience-block li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.6rem;
+
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+  .audience-block li::before {
+    content: '✦';
+
+    position: absolute;
+
+    left: 0;
+    top: 0.47rem;
+
+    color: var(--orange);
+
+    font-size: 0.8rem;
+  }
+
+  /* Path buttons */
+
+  .path-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.7rem;
+
+    margin-top: 1.75rem;
+
+    padding:
+      0.85rem 1.35rem;
+
+    border:
+      2px solid var(--orange);
+
+    border-radius: 0.35rem;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .path-button span {
+    transition:
+      transform 180ms ease;
+  }
+
+  .path-button:hover span {
+    transform:
+      translateX(4px);
+  }
+
+  .path-button--primary {
+    background:
+      var(--orange);
+
+    color: #fff;
+  }
+
+  .path-button--primary:hover {
+    background:
+      var(--purple);
+
+    border-color:
+      var(--purple);
+  }
+
+  .path-button--secondary {
+    background:
+      transparent;
+
+    color:
+      var(--purple);
+  }
+
+  .path-button--secondary:hover {
+    background:
+      var(--purple);
+
+    border-color:
+      var(--purple);
+
+    color: #fff;
+  }
+
+  /* Proof strip */
+
+  .proof-strip {
+    margin-top:
+      clamp(4rem, 7vw, 6rem);
+
+    padding-top: 2.4rem;
+
+    border-top:
+      1px solid rgba(89, 30, 110, 0.12);
+  }
+
+  .proof-strip__heading {
+    margin-bottom: 2rem;
+
+    text-align: center;
+  }
+
+  .proof-strip__items {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .proof-item {
+    display: grid;
+
+    grid-template-columns:
+      auto 1fr;
+
+    gap: 1rem;
+
+    align-items: center;
+
+    min-height: 88px;
+
+    padding:
+      0 clamp(1rem, 2.5vw, 2.5rem);
+  }
+
+  .proof-item + .proof-item {
+    border-left:
+      1px solid rgba(89, 30, 110, 0.14);
+  }
+
+  .proof-item__icon {
+    min-width: 48px;
+
+    color: var(--orange);
+
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+
+    text-align: center;
+  }
+
+  .proof-item__icon--years {
+    font-size: 1.8rem;
+  }
+
+  .proof-item strong,
+  .proof-item span {
+    display: block;
+  }
+
+  .proof-item strong {
+    color: var(--purple);
+
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .proof-item span {
+    margin-top: 0.2rem;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  /* Tablet */
+
+  @media (max-width: 1100px) {
+    .about-authority__hero {
+      grid-template-columns:
+        minmax(280px, 0.82fr)
+        minmax(0, 1.18fr);
+
+      gap: 2rem 2.5rem;
+    }
+
+    .about-authority__credentials {
+      gap: 1.2rem;
+    }
+
+    .credential h3 {
+      font-size: 1.3rem;
+    }
+  }
+@media (max-width: 900px) {
+  .about-authority__hero {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      'intro'
+      'portrait'
+      'credentials'
+      'quotes';
+
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .about-authority__intro h2 {
+    max-width: 9ch;
+  }
+
+  .about-authority__portrait {
+    min-height: 0;
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+
+  .about-authority__portrait img {
+    max-height: 560px;
+  }
+
+  .about-authority__credentials {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .about-authority__quotes {
+    grid-template-columns: 1fr;
+  }
+
+  .foundation__heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .foundation__heading h2 {
+    max-width: none;
+    width: 100%;
+  }
+
+  .foundation__heading > p:last-child {
+    max-width: 70ch;
+  }
+
+  .foundation__audiences {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+  /* Mobile */
+
+  @media (max-width: 700px) {
+    .about-authority__inner {
+      width:
+        min(100% - 2rem, 1180px);
+    }
+
+    .about-authority__hero {
+      padding-top: 3.5rem;
+    }
+
+    .about-authority__intro h2 {
+      max-width: 8ch;
+
+      font-size:
+        clamp(2.95rem, 13vw, 4.7rem);
+    }
+
+    .about-authority__portrait {
+      width:
+        min(100%, 460px);
+    }
+
+    .portrait-halo {
+      inset:
+        1rem 0.5rem
+        3.5rem 0.5rem;
+    }
+
+    .about-authority__credentials {
+      grid-template-columns: 1fr;
+
+      gap: 0.75rem;
+    }
+
+    .credential {
+      padding-bottom: 0.2rem;
+    }
+
+    .credential h3 {
+      font-size: 1.75rem;
+    }
+
+    .pull-quote blockquote {
+      font-size: 1.16rem;
+    }
+
+    .foundation {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .foundation__heading h2 {
+      max-width: 11ch;
+
+      font-size:
+        clamp(2.5rem, 11vw, 4rem);
+    }
+
+    .foundation__audiences {
+      grid-template-columns: 1fr;
+
+      gap: 3rem;
+    }
+
+    .proof-strip__items {
+      grid-template-columns: 1fr;
+    }
+
+    .proof-item {
+      min-height: auto;
+
+      padding:
+        1rem 0.25rem;
+    }
+
+    .proof-item + .proof-item {
+      border-left: 0;
+
+      border-top:
+        1px solid rgba(89, 30, 110, 0.12);
+    }
+  }
+</style>

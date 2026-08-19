@@ -1,0 +1,57 @@
+---
+import bgImg from '../../assets/img/annette-pearson-hero-background.webp';
+---
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__background">
+    <img
+      src={bgImg.src}
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="hero__overlay"></div>
+
+  <div class="container hero__container">
+    <div class="hero__content">
+
+      <p class="hero__eyebrow">
+        For ambitious female leaders 
+      </p>
+
+      <h1 id="hero-heading">
+        Leadership wellbeing<br class="hero__desktop-break" />
+        for ambitious women
+      </h1>
+
+      <div class="hero__accent"></div>
+
+      <p class="hero__intro">
+        Gain confidence, clarity, and resilience  with personalised
+        executive coaching designed specifically for you and your organisation.
+      </p>
+
+      <div class="hero__actions">
+        <a
+          href="/individuals/"
+          class="hero__button hero__button--primary"
+        >
+          For Individuals
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="/organisations/"
+          class="hero__button hero__button--secondary"
+        >
+          For Organisations
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

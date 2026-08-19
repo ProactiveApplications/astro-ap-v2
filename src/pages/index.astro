@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/MainLayout.astro';
-import Hero from '../components/homepage/01_hero.astro';
+import Hero from '../components/homepage/02_hero.astro';
+import About from '../components/homepage/05_about-authority.astro';
 import Logos from '../components/website/logos_row.astro';
 
 export const prerender = true;
@@ -8,9 +9,10 @@ export const prerender = true;
 
 <Layout
   title="Home"
-  description="Leadership wellbeing coaching for ambitious women in education. The 90 Day Leadership Wellbeing Accelerator."
+  description="Leadership wellbeing coaching for ambitious women."
 >
   <Hero />
-  <Logos />
+  <About />
+ 
 </Layout>
 
