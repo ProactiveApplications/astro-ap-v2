@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import organisationsImage from '../../assets/img/service-organisations.png';
+---
+
+<section
+  class="service-signpost bg-canvas py-5"
+  aria-labelledby="organisations-card-heading"
+>
+  <div class="container">
+    <article class="card service-signpost__card border-0">
+      <div class="card-body p-4 p-md-5">
+        <div class="row">
+          <div class="col-12">
+            <h2
+              id="organisations-card-heading"
+              class="service-signpost__title mb-0"
+            >
+              Your people are your greatest asset.<br />
+              Are you protecting them?
+            </h2>
+          </div>
+        </div>
+
+        <div class="row align-items-center g-4 g-lg-5 mt-2 mt-lg-3">
+          <div class="col-12 col-lg-6">
+            <Image
+              src={organisationsImage}
+              alt="A diverse group of colleagues in a collaborative discussion"
+              class="service-signpost__image img-fluid w-100"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <p class="service-signpost__copy mb-4">
+              Bring a proven, award-winning methodology into your school, MAT
+              or organisation and build a culture where leaders and teams
+              thrive from the inside out.
+            </p>
+
+            <a
+              class="hero__button hero__button--primary"
+              href="/organisations/"
+            >
+              Explore support for organisations
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

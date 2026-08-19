@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import individualsImage from '../../assets/img/service-individuals.png';
+---
+
+<section
+  class="service-signpost bg-surface-sage py-5"
+  aria-labelledby="individuals-card-heading"
+>
+  <div class="container">
+    <article class="card service-signpost__card border-0">
+      <div class="card-body p-4 p-md-5">
+        <div class="row">
+          <div class="col-12">
+            <h2
+              id="individuals-card-heading"
+              class="service-signpost__title mb-0"
+            >
+              Burnout among female leaders is rising.<br />
+              You deserve better than just surviving.
+            </h2>
+          </div>
+        </div>
+
+        <div class="row align-items-center g-4 g-lg-5 mt-2 mt-lg-3">
+          <div class="col-12 col-lg-6">
+            <Image
+              src={individualsImage}
+              alt="A confident Black woman leader in a calm professional setting"
+              class="service-signpost__image img-fluid w-100"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <p class="service-signpost__copy mb-4">
+              Whether you lead a school, a team or an organisation, this work
+              helps you move beyond exhaustion and lead with clarity,
+              confidence and sustainable wellbeing.
+            </p>
+
+            <a
+              class="hero__button hero__button--primary"
+              href="/individuals/"
+            >
+              Explore support for individuals
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

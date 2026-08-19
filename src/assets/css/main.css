@@ -11,6 +11,7 @@
   /* Text & Borders */
   --color-text-main: oklch(22% 0.03 320);      /* Deep slate with purple undertone */
   --color-text-muted: oklch(45% 0.02 320);     /* Medium slate for secondary text */
+  --color-text-on-primary: #ffffff;            /* Text displayed on primary purple */
   --color-border-subtle: oklch(90% 0.01 320);  /* Soft divider lines */
   
   /* Legacy variables (for backward compatibility) */
@@ -818,5 +819,46 @@ footer a:hover {
 
   .pull-quote blockquote {
     font-size: 1.16rem;
+  }
+}
+
+/* ====================================================
+   SERVICE SIGNPOST CARDS
+   15_card-individuals.astro and 20_card-organisatons.astro
+   ==================================================== */
+
+.service-signpost__card {
+  overflow: hidden;
+  color: var(--color-text-on-primary);
+  background-color: var(--color-primary);
+  border-radius: 1.25rem;
+  box-shadow: 0 1.25rem 3rem rgba(54, 15, 68, 0.16);
+}
+
+.service-signpost__title {
+  color: var(--color-text-on-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.service-signpost__image {
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.service-signpost__copy {
+  color: var(--color-text-on-primary);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+  .service-signpost__card {
+    border-radius: 1rem;
   }
 }
