@@ -1,0 +1,98 @@
+---
+const credentials = [
+  {
+    label: 'Experience',
+    title: '35+ years of leadership experience',
+    body: 'More than three decades of education leadership, bringing first-hand insight into the pressure, responsibility and complexity of leading people.',
+  },
+  {
+    label: 'Training',
+    title: 'Trained mediator & counsellor',
+    body: 'Professional training that supports thoughtful conversations, clearer communication and meaningful change with individuals and teams.',
+  },
+  {
+    label: 'Recognition',
+    title: 'Award-winning, published and evidence-led',
+    body: 'Great British Workplace Wellbeing Award 2025, published author and creator of an established body of work around leadership and wellbeing.',
+  },
+];
+---
+<section
+  class="about-authority position-relative overflow-hidden"
+  aria-labelledby="about-annette-heading"
+>
+  <div class="container-fluid bg-surface-sage px-0">
+    <div class="container py-5">
+      <div class="position-relative z-2">
+        <p class="eyebrow mb-3 text-uppercase fw-bold">
+          About Annette
+        </p>
+        <h2
+          id="about-annette-heading"
+          class="display-2 mb-0"
+        >
+          Experience you can trust. Work that makes a difference.
+        </h2>
+      </div>
+
+      <div class="row g-4 g-xl-5 mt-5">
+        {credentials.map((item) => (
+          <div class="col-12 col-md-4">
+            <article class="credential position-relative h-100 ps-4 pb-1 pb-md-0">
+              <span
+                class="credential__dot position-absolute rounded-circle"
+                aria-hidden="true"
+              ></span>
+              <p class="credential__label mb-2 text-uppercase fw-bold">
+                {item.label}
+              </p>
+              <h3 class="mb-3">
+                {item.title}
+              </h3>
+              <p class="credential__body mb-0">
+                {item.body}
+              </p>
+            </article>
+          </div>
+        ))}
+      </div>
+
+      <div class="row g-4 g-xl-5 mt-5">
+        <div class="col-12 col-lg-6">
+          <figure class="pull-quote position-relative mb-0 ps-4 h-100">
+            <span
+              class="pull-quote__mark position-absolute"
+              aria-hidden="true"
+            >
+              “
+            </span>
+            <blockquote class="mb-0 fst-italic">
+              You leave the space changed — more grounded,
+              more self-aware.
+            </blockquote>
+            <figcaption class="mt-3 fw-bold">
+              Kemi
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-lg-6">
+          <figure class="pull-quote position-relative mb-0 ps-4 h-100">
+            <span
+              class="pull-quote__mark position-absolute"
+              aria-hidden="true"
+            >
+              “
+            </span>
+            <blockquote class="mb-0 fst-italic">
+              Annette has the ability to remain centred and
+              thoughtful, even in high-pressure situations.
+            </blockquote>
+            <figcaption class="mt-3 fw-bold">
+              Gurinder S Sanhotra, Assistant Principal
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

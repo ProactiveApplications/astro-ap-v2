@@ -1,18 +1,16 @@
 ---
 import Layout from '../layouts/MainLayout.astro';
 import Hero from '../components/homepage/02_hero.astro';
-import About from '../components/homepage/05_about-authority.astro';
-import Logos from '../components/website/logos_row.astro';
+import About from '../components/homepage/05_authority.astro';
+import Foundation from '../components/homepage/10_authority.astro';
 
 export const prerender = true;
 ---
 
-<Layout
-  title="Home"
-  description="Leadership wellbeing coaching for ambitious women."
->
+<Layout title="Home" description="Leadership wellbeing coaching for ambitious women.">
+
   <Hero />
   <About />
+  <Foundation />
  
 </Layout>
-

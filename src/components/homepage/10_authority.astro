@@ -1,0 +1,112 @@
+---
+const individualPoints = [
+  'Space to reflect clearly and honestly',
+  'Support with boundaries, confidence and communication',
+  'A sustainable way to lead without losing yourself',
+];
+const organisationPoints = [
+  'Leadership wellbeing and sustainable performance',
+  'Communication, psychological safety and mediation',
+  'Healthier cultures that support people and outcomes',
+];
+---
+<section
+  class="about-authority"
+  aria-labelledby="foundation-heading"
+>
+  <div class="container-fluid bg-canvas px-0 border-top border-secondary-subtle">
+    <div class="container py-5">
+      <div class="row mb-4">
+        <div class="col-12">
+          <p class="eyebrow mb-3 text-uppercase fw-bold">
+            The foundation
+          </p>
+          <h2
+            id="foundation-heading"
+            class="display-2 mb-0"
+          >
+            A foundation built on experience, training
+            and lived insight.
+          </h2>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-12">
+          <p class="fs-4 lh-lg text-body-secondary mb-0">
+            Her authority is not built on theory alone.
+            It comes from years of leadership, professional
+            training and practical work with people navigating
+            real pressure and change.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-12 col-md-6">
+          <article class="audience-block position-relative h-100 ps-4">
+            <span
+              class="audience-block__dot position-absolute rounded-circle"
+              aria-hidden="true"
+            ></span>
+            <p class="audience-block__label mb-3 text-uppercase fw-bold">
+              For individual leaders
+            </p>
+            <h3 class="mb-3">
+              Clarity, confidence and grounded leadership.
+            </h3>
+            <p class="audience-block__body mb-0">
+              One-to-one work gives leaders room to think clearly,
+              understand what needs to change and move forward
+              with confidence.
+            </p>
+            <ul class="list-unstyled mt-4 mb-0">
+              {individualPoints.map((point) => (
+                <li class="position-relative py-2 ps-4">{point}</li>
+              ))}
+            </ul>
+            <a
+              href="/individuals/"
+              class="hero__button hero__button--primary mt-4"
+            >
+              For Individuals
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <article class="audience-block position-relative h-100 ps-4">
+            <span
+              class="audience-block__dot position-absolute rounded-circle"
+              aria-hidden="true"
+            ></span>
+            <p class="audience-block__label mb-3 text-uppercase fw-bold">
+              For teams & organisations
+            </p>
+            <h3 class="mb-3">
+              Healthier cultures. Stronger outcomes.
+            </h3>
+            <p class="audience-block__body mb-0">
+              Annette also works at team and organisational level,
+              helping create the conditions in which people can
+              perform without wellbeing becoming collateral damage.
+            </p>
+            <ul class="list-unstyled mt-4 mb-0">
+              {organisationPoints.map((point) => (
+                <li class="position-relative py-2 ps-4">{point}</li>
+              ))}
+            </ul>
+            <a
+              href="/organisations/"
+              class="hero__button hero__button--secondary mt-4"
+            >
+              For Organisations
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
