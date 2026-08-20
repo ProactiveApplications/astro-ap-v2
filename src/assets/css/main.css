@@ -804,7 +804,6 @@ footer a:hover {
 }
 
 .audience-block h3 {
-  max-width: 14ch;
   font-size: clamp(1.9rem, 2.6vw, 3rem);
   line-height: 1.05;
 }
