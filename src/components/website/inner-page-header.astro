@@ -1,0 +1,20 @@
+---
+export interface Props {
+  /** Main page heading. */
+  title: string;
+  /** Optional supporting text displayed below the heading. */
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<header class="page-header">
+  <div class="container">
+    <div class="page-header__inner">
+      <h1 class="page-header__title">{title}</h1>
+      {subtitle && <p class="page-header__sub">{subtitle}</p>}
+      <hr class="page-header__rule" />
+    </div>
+  </div>
+</header>

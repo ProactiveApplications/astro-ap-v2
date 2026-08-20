@@ -4,11 +4,24 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "cross-env WRANGLER_HOME=C:\\temp\\wrangler-home astro build",
+    "build:ci": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "cross-env WRANGLER_HOME=C:\\temp\\wrangler-home astro build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.2.3",
+    "@sanity/client": "^8.2.0",
     "astro": "^7.2.2"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "wrangler": "^4.124.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20260815.1": true
   }
 }

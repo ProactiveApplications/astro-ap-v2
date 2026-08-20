@@ -7,6 +7,7 @@
   --color-bg-canvas: #f9f8f3;                  /* Main Warm Off-White Surface */
   --color-bg-surface-purple: #f8f2fa;          /* Level 1 Purple Tint */
   --color-bg-surface-sage: #f3f8f4;            /* Level 1 Sage Tint */
+  --color-bg-page-header: #efefef;              /* Inner page header */
   
   /* Text & Borders */
   --color-text-main: oklch(22% 0.03 320);      /* Deep slate with purple undertone */
@@ -860,5 +861,106 @@ footer a:hover {
 @media (max-width: 767.98px) {
   .service-signpost__card {
     border-radius: 1rem;
+  }
+}
+
+/* ====================================================
+   BLOG LAYOUT
+   BlogPostLayout.astro and inner-page-header.astro
+   ==================================================== */
+
+.page-header {
+  padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
+  background-color: var(--color-bg-page-header);
+}
+
+.page-header__inner {
+  max-width: 72ch;
+}
+
+.page-header__title {
+  margin: 0 0 1.125rem;
+  color: var(--color-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 5.6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.page-header__sub {
+  max-width: 54ch;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+.page-header__rule {
+  width: 4rem;
+  margin: 2rem 0 0;
+  border: 0;
+  border-top: 3px solid var(--color-cta);
+  opacity: 1;
+}
+
+.blog-content {
+  min-height: 20rem;
+  padding: clamp(3rem, 7vw, 6rem) 0;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-canvas);
+}
+
+.blog-content__inner {
+  max-width: 72ch;
+}
+
+.blog-content__inner > :last-child {
+  margin-bottom: 0;
+}
+
+/* ====================================================
+   MAIN NAVIGATION
+   NavbarLayout.astro
+   ==================================================== */
+
+.site-brand-name {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.site-nav-link {
+  position: relative;
+  color: var(--color-text-main);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible,
+.site-nav-link.active {
+  color: var(--color-primary);
+}
+
+.site-nav-link.active {
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  #mainNavigation {
+    padding: 0.75rem 0 1rem;
+  }
+
+  .site-nav-link {
+    min-height: 44px;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .site-nav-cta {
+    margin-top: 1rem;
   }
 }
