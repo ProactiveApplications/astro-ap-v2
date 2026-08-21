@@ -1,0 +1,34 @@
+---
+export interface Props {
+  title: string;
+  text: string;
+  href: string;
+  linkLabel: string;
+  external?: boolean;
+}
+
+const {
+  title,
+  text,
+  href,
+  linkLabel,
+  external = false,
+} = Astro.props;
+---
+
+<section class="row mt-5">
+  <div class="col-12">
+    <div class="cta-subtle-row py-4">
+      <h2 class="cta-subtle-row__title mb-2">{title}</h2>
+      <p class="cta-subtle-row__copy mb-3">{text}</p>
+      <a
+        href={href}
+        class="cta-subtle-row__link"
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener' : undefined}
+      >
+        {linkLabel}
+      </a>
+    </div>
+  </div>
+</section>

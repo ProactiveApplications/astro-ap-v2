@@ -2,18 +2,27 @@
 export interface Props {
   /** Main page heading. */
   title: string;
+  /** Optional heading displayed above the supporting text. */
+  subtitleTitle?: string;
   /** Optional supporting text displayed below the heading. */
   subtitle?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitleTitle, subtitle } = Astro.props;
 ---
 
-<header class="page-header">
+<header class="page-header bg-sage-whisper">
   <div class="container">
     <div class="page-header__inner">
       <h1 class="page-header__title">{title}</h1>
-      {subtitle && <p class="page-header__sub">{subtitle}</p>}
+      {subtitle && (
+        <div class="page-header__sub-block">
+          {subtitleTitle && (
+            <h2 class="page-header__sub-title">{subtitleTitle}</h2>
+          )}
+          <p class="page-header__sub">{subtitle}</p>
+        </div>
+      )}
       <hr class="page-header__rule" />
     </div>
   </div>

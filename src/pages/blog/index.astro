@@ -1,11 +1,96 @@
 ---
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { sanityClient, imageUrl } from '../../lib/sanity';
 
 export const prerender = false;
+
+const posts = await sanityClient.fetch<Array<{
+  title: string;
+  slug: string;
+  publishedAt: string;
+  excerpt: string;
+  mainImage: { asset: object; alt: string } | null;
+}>>(
+  `*[_type == "post"] | order(publishedAt desc) {
+    title,
+    "slug": slug.current,
+    publishedAt,
+    excerpt,
+    mainImage { asset->, alt }
+  }`
+);
+
+const formatPublishedDate = (publishedAt: string) =>
+  new Date(publishedAt).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 ---
 
-<BlogPostLayout title="Blog list">
-  <ul>
-    <li>Blog post title</li>
+<BlogPostLayout title="Annette's Blog" contentColumnClass="col-12">
+  <ul class="blog-list list-unstyled row g-4 mb-0">
+    {posts.map((post) => (
+      <li class="col-12 col-lg-8">
+        <article class="card blog-list__card h-100">
+          <div class="row g-0 flex-grow-1">
+            <div class="col-12 col-md-4">
+              {post.mainImage ? (
+                <img
+                  src={imageUrl(post.mainImage).width(400).height(300).fit('crop').url()}
+                  alt={post.mainImage.alt}
+                  class="blog-list__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+              ) : (
+                <div class="blog-list__image-placeholder" aria-hidden="true">
+                  <span>Image coming soon</span>
+                </div>
+              )}
+            </div>
+
+            <div class="col-12 col-md-8">
+              <div class="card-body p-4">
+                <h2 class="card-title blog-list__title h4 mb-3">
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="blog-list__title-link"
+                  >
+                    {post.title}
+                  </a>
+                </h2>
+
+                {post.excerpt && (
+                  <p class="card-text blog-list__excerpt mb-4">{post.excerpt}</p>
+                )}
+
+                <div class="row">
+                  <div class="col-12 text-end">
+                    <a
+                      href={`/blog/${post.slug}`}
+                      class="blog-list__read-more"
+                      aria-label={`Read more about ${post.title}`}
+                    >
+                      read more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="card-footer bg-transparent px-4 py-3">
+            <time
+              class="blog-list__date small text-body-secondary"
+              datetime={post.publishedAt}
+            >
+              Published on: {formatPublishedDate(post.publishedAt)}
+            </time>
+          </footer>
+        </article>
+      </li>
+    ))}
   </ul>
 </BlogPostLayout>

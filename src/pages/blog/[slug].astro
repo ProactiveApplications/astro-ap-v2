@@ -1,9 +1,74 @@
 ---
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import Backlink from '../../components/website/backlink.astro';
+import CtaSubtleRow from '../../components/website/cta-subtle-row.astro';
+import { sanityClient, imageUrl } from '../../lib/sanity';
+import { toHTML } from '@portabletext/to-html';
 
 export const prerender = false;
+
+const { slug } = Astro.params;
+
+const post = await sanityClient.fetch<{
+  title: string;
+  publishedAt: string;
+  excerpt: string;
+  body: unknown[];
+  mainImage: { asset: object; alt: string } | null;
+} | null>(
+  `*[_type == "post" && slug.current == $slug][0] {
+    title,
+    publishedAt,
+    excerpt,
+    body,
+    mainImage { asset->, alt }
+  }`,
+  { slug }
+);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const bodyHtml = post.body ? toHTML(post.body) : '';
+const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
 ---
 
-<BlogPostLayout title="Blog post">
-  <p>Blog post content</p>
+<BlogPostLayout
+  title={post.title}
+  subtitleTitle="Post excerpt"
+  subtitle={post.excerpt}
+  description={post.excerpt}
+>
+  <Backlink />
+
+  {post.mainImage && (
+    <img
+      src={imageUrl(post.mainImage).width(900).fit('max').url()}
+      alt={post.mainImage.alt}
+      class="blog-post__hero-image mb-4"
+      loading="eager"
+      width="900"
+    />
+  )}
+
+  <div class="blog-post__body" set:html={bodyHtml} />
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <p class="small text-body-secondary text-start mb-0">
+        Published on: <time datetime={post.publishedAt}>{formattedDate}</time>
+      </p>
+    </div>
+  </div>
+
+  <CtaSubtleRow
+    title="Ready to take the next step?"
+    text="A free discovery call is a simple way to explore what support could look like for you or your organisation."
+    href="https://calendly.com/annetteruthpearson/leadership-wellbeing-accelerator-consultation"
+    linkLabel="Book a free discovery call"
+    external
+  />
 </BlogPostLayout>

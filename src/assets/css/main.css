@@ -884,31 +884,133 @@ footer a:hover {
    BlogPostLayout.astro and inner-page-header.astro
    ==================================================== */
 
-.page-header {
-  padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
-  background-color: var(--color-bg-page-header);
+.blog-layout {
+  /* Change these two tokens to trial a different blog font pairing. */
+  --font-blog-heading: "Manrope", Arial, sans-serif;
+  --font-blog-body: "Source Sans 3", Arial, sans-serif;
+
+  font-family: var(--font-blog-body);
 }
 
-.page-header__inner {
-  max-width: 72ch;
+.blog-layout p,
+.blog-layout li {
+  font-family: var(--font-blog-body);
+}
+
+.blog-layout .page-header__title,
+.blog-layout .page-header__sub,
+.blog-layout .blog-list__title,
+.blog-layout .blog-post__body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-blog-heading);
+}
+
+.blog-layout .blog-list__title {
+  font-weight: 700;
+}
+
+.blog-list__card {
+  overflow: hidden;
+  border-color: var(--color-border-subtle);
+}
+
+.blog-list__image-placeholder,
+.blog-list__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 14rem;
+}
+
+.blog-list__image-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 14rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-surface-sage);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.blog-list__title {
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.blog-list__title-link,
+.blog-list__title-link:hover,
+.blog-list__title-link:focus-visible {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.blog-list__excerpt {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.blog-list__read-more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+.blog-list__read-more:hover,
+.blog-list__read-more:focus-visible {
+  color: var(--color-cta-hover);
+}
+
+.blog-list__image {
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .blog-list__image-placeholder,
+  .blog-list__image {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.blog-layout .blog-post__body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 600;
+}
+
+.page-header {
+  padding: clamp(2.8rem, 6.3vw, 4.9rem) 0 clamp(2.1rem, 4.9vw, 3.5rem);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .page-header__title {
   margin: 0 0 1.125rem;
   color: var(--color-primary);
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2.5rem, 5.6vw, 4.5rem);
+  font-size: clamp(2.25rem, 4.25vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.08;
 }
 
 .page-header__sub {
   max-width: 54ch;
   margin: 0;
   color: var(--color-text-muted);
-  font-size: 1.1875rem;
-  line-height: 1.5;
+  font-size: clamp(1.125rem, 1.6vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.page-header__sub-title {
+  margin: 0 0 0.5rem;
+  color: var(--color-primary);
+  font-family: var(--font-blog-body, var(--font-body));
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .page-header__rule {
@@ -926,12 +1028,41 @@ footer a:hover {
   background-color: var(--color-bg-canvas);
 }
 
-.blog-content__inner {
-  max-width: 72ch;
-}
-
 .blog-content__inner > :last-child {
   margin-bottom: 0;
+}
+
+.cta-subtle-row {
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.cta-subtle-row__title {
+  color: var(--color-primary);
+  font-family: var(--font-blog-heading, var(--font-body));
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cta-subtle-row__copy {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cta-subtle-row__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+.cta-subtle-row__link:hover,
+.cta-subtle-row__link:focus-visible {
+  color: var(--color-cta-hover);
 }
 
 /* ====================================================

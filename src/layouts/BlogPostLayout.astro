@@ -4,21 +4,46 @@ import InnerPageHeader from '../components/website/inner-page-header.astro';
 
 interface Props {
   title: string;
+  subtitleTitle?: string;
   subtitle?: string;
   description?: string;
+  contentColumnClass?: string;
 }
 
-const { title, subtitle, description } = Astro.props;
+const {
+  title,
+  subtitleTitle,
+  subtitle,
+  description,
+  contentColumnClass = 'col-12 col-lg-8',
+} = Astro.props;
+
+const blogFontStylesheetUrl =
+  'https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap';
 ---
 
-<MainLayout title={title} description={description}>
-  <InnerPageHeader title={title} subtitle={subtitle} />
+<MainLayout
+  title={title}
+  description={description}
+  fontStylesheetUrl={blogFontStylesheetUrl}
+>
+  <div class="blog-layout">
+    <InnerPageHeader
+      title={title}
+      subtitleTitle={subtitleTitle}
+      subtitle={subtitle}
+    />
 
-  <section class="blog-content">
-    <div class="container">
-      <div class="blog-content__inner">
-        <slot />
+    <section class="blog-content">
+      <div class="container">
+        <div class="row">
+          <div class={contentColumnClass}>
+            <div class="blog-content__inner">
+              <slot />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </MainLayout>
